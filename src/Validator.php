@@ -13,4 +13,8 @@ class Validator
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
+    public static function validatePhone(int $number): string
+    {
+        return "USA";
+    }
 }

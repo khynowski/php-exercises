@@ -13,9 +13,15 @@ class Validator
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
-
     public static function validatePhone(int $number): string
     {
-        return "Polska";
+        $numberAsString = (string) $number;
+        if (str_starts_with($numberAsString, '48')) {
+            return 'Polska';
+        }
+        if (str_starts_with($numberAsString, '1')) {
+            return 'USA';
+        }
+        return 'Nieznany kraj';
     }
 }

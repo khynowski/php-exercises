@@ -24,4 +24,9 @@ class Validator
         }
         return 'Nieznany kraj';
     }
+
+   public static function Test(string $email):bool
+   {
+      return true;
+   }
 }

@@ -1,0 +1,21 @@
+{
+    "name": "hynkar/php-starter",
+    "description": "My Composer learning project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hynkar\\PhpStarter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KarolH",
+            "email": "karol.hynowski@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "nesbot/carbon": "^3.11"
+    }
+}

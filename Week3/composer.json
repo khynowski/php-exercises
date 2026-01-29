@@ -17,5 +17,12 @@
     "minimum-stability": "stable",
     "require": {
         "nesbot/carbon": "^3.11"
-    }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.93"
+    },
+	"scripts": {
+		"fixer": "vendor/bin/php-cs-fixer fix",
+		"check-all": ["@fixer" , "php -r \"echo date('Y-m-d');\""]
+	}
 }

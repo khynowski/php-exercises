@@ -1,5 +1,3 @@
-FROM php:8.4-cli 
-COPY ./ app/
-WORKDIR /app
+FROM php:8.4-fpm
+RUN docker-php-ext-install pdo pdo_mysql
 
-CMD ["php", "index.php"]

@@ -38,14 +38,5 @@ class Money
     {
         return $this->amount === $other->amount && $this->currency === $other->currency;
     }
-
-    public function convert(string $newCurrency, ExchangeRateProviderInterface $provider): Money
-    {
-        $amountInPLN = $this->amount * $provider->getRateFor($this->currency);
-        $newAmount = $amountInPLN / $provider->getRateFor($newCurrency);
-        $newAmountInt = (int) round($newAmount);
-        return new Money($newAmountInt, $newCurrency);
-    }
-
     
 }

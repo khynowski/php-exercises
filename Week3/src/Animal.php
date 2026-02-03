@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Hynkar\PhpStarter;
 
-class Animal
+abstract class Animal
 {
     protected string $name;
 
@@ -12,10 +12,7 @@ class Animal
         $this->name = $name;
     }
 
-    public function speak(): string
-    {
-        return "...";
-    }
+    abstract public function speak(): string;
 
     public function getName(): string
     {

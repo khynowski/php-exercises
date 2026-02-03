@@ -2,21 +2,26 @@
 
 declare(strict_types=1);
 namespace Hynkar\PhpStarter;
-use Hynkar\PhpStarter\Address;
+use Hynkar\PhpStarter\AddressInterface;
 
 class User
 {
     private string $name;
-    private Address $address;
+    private AddressInterface $address;
 
-    public function __construct(string $name, Address $address)
+    public function __construct(string $name, AddressInterface $address)
     {
         $this->name = $name;
         $this->address = $address;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function showProfile(): string
     {
-        return "Użytkownik" . $this->name . ", mieszka w: " . $this->address->getFullString();
+        return $this->name . ", mieszka pod adresem: " . $this->address->getFullString();
     }
 }

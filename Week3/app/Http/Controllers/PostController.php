@@ -16,4 +16,20 @@ class PostController extends Controller
         //return view('posts.index', ['posts' => $posts]);
         return view('posts.index', compact('posts'));
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request) // Import: Illuminate\Http\Request
+    {
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->is_published = true;
+        $post->save(); //INSERT INTO...
+
+        return redirect('/posts'); //Wracamy na liste
+    }
 }

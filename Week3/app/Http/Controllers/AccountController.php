@@ -20,7 +20,7 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
+        return "Dummy Implementation";
     }
 
     /**
@@ -28,7 +28,7 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Dummy Implementation";
     }
 
     /**
@@ -45,7 +45,7 @@ class AccountController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return "Dummy Implementation";
     }
 
     /**
@@ -53,7 +53,7 @@ class AccountController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return "Dummy Implementation";
     }
 
     /**
@@ -61,6 +61,6 @@ class AccountController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return "Usuwanie konta " . $id;
     }
 }

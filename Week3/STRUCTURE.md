@@ -29,3 +29,13 @@
     - Folder do tworzenia testów (Feature i Unit)
 10. vendor
     - Folder Composera. Nie dotykać.
+11. app/Http/Middleware
+    - Sprawdza request ZANIM trafi do kontrolera (np. czy user jest zalogowany).
+12. app/Http/Requests
+    - Form Requests. Tu trzymamy reguły walidacji (np. 'title' => 'required'), żeby nie śmiecić w kontrolerze.
+13. app/Events
+    - "Krzyk". Klasa reprezentująca zdarzenie (np. OrderPlaced).
+14. app/Listeners
+    - "Słuchacz". Reakcja na zdarzenie (np. SendEmail).
+15. app/Mail
+    - Klasy budujące treść e-maili.

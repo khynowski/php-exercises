@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Account;
 
 class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //TODO
-        return "Tu będzie lista kont";
+        return Account::all();
     }
 
     /**
@@ -20,7 +20,7 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
+        return "Dummy Implementation";
     }
 
     /**
@@ -28,7 +28,15 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validated = $request->validate([
+            'name' => 'required|string|min:3',
+            'balance' => 'required|integer|min:0',
+            'currency' => 'required|in:PLN,USD,EUR'
+        ]);
+        $account = Account::create($validated);
+
+        return response()->json($account, 201);
     }
 
     /**
@@ -45,7 +53,7 @@ class AccountController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return "Dummy Implementation";
     }
 
     /**
@@ -53,7 +61,15 @@ class AccountController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|min:3',
+            'balance' => 'required|integer|min:0',
+            'currency' => 'required|in:PLN,USD,EUR'
+        ]);
+
+        $account = Account::findOrFail($id);
+        $account->update($request->validate());
+        return response()->json($account, 200);
     }
 
     /**
@@ -61,6 +77,10 @@ class AccountController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $account = Account::findOrFail($id);
+        $account->delete();
+
+        return response()->json(null, 204);
+        
     }
 }
